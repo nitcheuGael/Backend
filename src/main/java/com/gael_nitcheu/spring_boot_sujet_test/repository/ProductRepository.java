@@ -9,8 +9,10 @@ import com.gael_nitcheu.spring_boot_sujet_test.Model.Product;
 public interface ProductRepository extends CrudRepository<Product, Long> {
     List<Product> findProductById(Long id);
 
-    List<Product> findByLienProduct(String lienProduct);
+    List<Product> findByLienProductAndEmail(String lienProduct,String email);
 
-    boolean existsByLienProduct(String lienProduct);
+    List<Product> findByEmail(String email);
+
+    boolean existsByLienProductAndEmail(String lienProduct,String email);
 
 }

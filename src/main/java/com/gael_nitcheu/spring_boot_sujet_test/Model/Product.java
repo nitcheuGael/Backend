@@ -28,7 +28,10 @@ public class Product {
     private String commentaire;
     private Date dateProduct;
     private String statut;
+    private String email;
 
+
+    
     
 
 
@@ -36,7 +39,8 @@ public class Product {
     }
 
 
-    public Product(Long id, String nameProduct, String taglineProduct, String lienProduct, String lienTwitter, String topicProduit, String descriptionProduct, String thumbnailProduct, String travailProduct, String lieuTraivailProduct, String pricingProduct, String lienYoutubeProduct, String dureeOffreProduct, String promocodeProduit, String commentaire, Date dateProduct, String statut) {
+
+    public Product(Long id, String nameProduct, String taglineProduct, String lienProduct, String lienTwitter, String topicProduit, String descriptionProduct, String thumbnailProduct, String travailProduct, String lieuTraivailProduct, String pricingProduct, String lienYoutubeProduct, String dureeOffreProduct, String promocodeProduit, String commentaire, Date dateProduct, String statut, String email) {
         this.id = id;
         this.nameProduct = nameProduct;
         this.taglineProduct = taglineProduct;
@@ -54,7 +58,9 @@ public class Product {
         this.commentaire = commentaire;
         this.dateProduct = dateProduct;
         this.statut = statut;
+        this.email = email;
     }
+   
    
 
     public Long getId() {
@@ -195,6 +201,13 @@ public class Product {
 
     public void setStatut(String statut) {
         this.statut = statut;
+    }
+    public String getEmail() {
+        return this.email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
 }

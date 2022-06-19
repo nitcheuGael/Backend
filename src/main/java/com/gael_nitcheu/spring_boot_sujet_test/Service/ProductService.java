@@ -19,8 +19,13 @@ public class ProductService {
         productRepository.save(product);
     }
 
-    public List<Product> liste_product(String lienProduct) {
-        return productRepository.findByLienProduct(lienProduct);
+    public List<Product> liste_product(String lienProduct,String email) {
+        return productRepository.findByLienProductAndEmail(lienProduct,email);
+
+    }
+
+    public List<Product> liste_product_byEmail(String email) {
+        return productRepository.findByEmail(email);
 
     }
 
@@ -28,12 +33,12 @@ public class ProductService {
         return (List<Product>) productRepository.findAll();
     }
 
-    public List<Product> list_producByLien(String lienProduct) {
-        return productRepository.findByLienProduct(lienProduct);
+    public List<Product> list_producByLien(String lienProduct,String email) {
+        return productRepository.findByLienProductAndEmail(lienProduct,email);
     }
 
-    public boolean exist_producByLien(String lienProduct) {
-        return productRepository.existsByLienProduct(lienProduct);
+    public boolean exist_producByLien(String lienProduct,String email) {
+        return productRepository.existsByLienProductAndEmail(lienProduct,email);
     }
     public void delete_product(long id) {
         productRepository.deleteById(id);

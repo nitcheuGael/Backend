@@ -41,11 +41,17 @@ public class ProductController {
         productServ.update_product(product, id);
     }
 
-    // LISTE Product D'ID
-    @RequestMapping(method = RequestMethod.GET, value = "/list_Product/{lienProduct}")
-    public List<Product> list_post(@PathVariable("lienProduct") String lienProduct) {
-        return productServ.liste_product(lienProduct);
+    // LISTE Product byD'lien and email
+    @RequestMapping(method = RequestMethod.GET, value = "/list_Product/{lienProduct}/{email}")
+    public List<Product> list_post(@PathVariable("lienProduct") String lienProduct,@PathVariable("email") String email) {
+        return productServ.liste_product(lienProduct,email);
     }
+
+     // LISTE Product by email
+     @RequestMapping(method = RequestMethod.GET, value = "/list_product_by_email/{email}")
+     public List<Product> list_product_by_email(@PathVariable("email") String email) {
+         return productServ.liste_product_byEmail(email);
+     }
 
     // LISTE Product
     @RequestMapping(method = RequestMethod.GET, value = "/list_Product_all")
@@ -54,16 +60,11 @@ public class ProductController {
     }
 
     // LISTE Product
-    @RequestMapping(method = RequestMethod.GET, value = "/existe_2/{lienProduct}")
-    public boolean existe_2(@PathVariable("lienProduct") String lienProduct) {
-        return productServ.exist_producByLien(lienProduct);
+    @RequestMapping(method = RequestMethod.GET, value = "/existe_2/{lienProduct}/{email}")
+    public boolean existe_2(@PathVariable("lienProduct") String lienProduct,@PathVariable("email") String email) {
+        return productServ.exist_producByLien(lienProduct,email);
     }
 
-    // PRODUIT EXISTE
-    @RequestMapping(method = RequestMethod.GET, value = "/lien_exist/{lienProduct}")
-    public boolean lienExist(@PathVariable("lienProduct") String lienProduct) {
-        return productServ.exist_producByLien(lienProduct);
-    }
 //DELETE
 @RequestMapping(method = RequestMethod.DELETE, value = "/delete/{id}")
     public void delete(@PathVariable("id") Long id) {
